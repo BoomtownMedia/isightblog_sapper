@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Header from "../../components/Header.svelte";
+  import Footer from "../../components/Footer.svelte";
   let posts = [];
 
   onMount(async function() {
@@ -18,36 +19,31 @@
 </svelte:head>
 <Header />
 
-<div class="main main-raised">
-  <div class="container">
-    <div class="col-md-12">
-      <h2 class="">Latest Blog Posts</h2>
-      <br />
-      <div class="row">
+<div class="main main-raised" style="padding-top: 20px">
+  <div class="col-md-12">
+    <h2 class="title text-center">Latest Blog Posts</h2>
+    <br />
+    <div class="row justify-content-center">
 
-        {#each posts as post}
-          <a rel="prefetch" href="blog/{post.slug}">
+      {#each posts as post}
+        <a rel="prefetch" href="blog/{post.slug}">
 
-            <div class="col-md-6">
-              <div
-                class="card card-raised card-background"
-                style="background-image: url('{post.imageBackdrop.url}')">
-                <div class="card-body">
-                  <h6 class="card-category text-info">{post.category}</h6>
-                  <h4 class="card-title">{post.title}</h4>
-                  <p class="card-description">
-                    {post.subtitle.slice(0, 200)}...
-                  </p>
-                  <button class="btn btn-primary btn-round">
-                    Read Article
-                  </button>
-                </div>
+          <div class="col-md-4">
+            <div
+              class="card card-raised card-background"
+              style="background-image: url('{post.imageBackdrop.url}')">
+              <div class="card-body">
+                <h6 class="card-category text-info">{post.category}</h6>
+                <h4 class="card-title">{post.title}</h4>
+                <p class="card-description">{post.subtitle.slice(0, 200)}...</p>
+                <button class="btn btn-primary btn-round">Read Article</button>
               </div>
             </div>
+          </div>
 
-          </a>
-        {/each}
-      </div>
+        </a>
+      {/each}
     </div>
   </div>
 </div>
+<Footer />

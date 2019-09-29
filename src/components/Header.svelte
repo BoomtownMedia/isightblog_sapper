@@ -7,7 +7,7 @@
 </style>
 
 <div
-  class="page-header header-filter clear-filter"
+  class="page-header header-filter presentation-page"
   style="background-image: url('main.jpg');"
   data-parallax="true">
   <div class="container">
