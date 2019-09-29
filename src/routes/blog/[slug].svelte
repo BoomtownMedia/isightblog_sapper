@@ -14,6 +14,11 @@
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
   });
+
+  function handleClick() {
+    var element = document.getElementById("blog");
+    element.scrollIntoView();
+  }
 </script>
 
 <svelte:head>
@@ -30,10 +35,10 @@
         <h1 class="title">{pageData.title}</h1>
         <h4>{pageData.subtitle}</h4>
         <br />
-        <a href="#blog" class="btn btn-rose btn-round btn-lg">
+        <button class="btn btn-rose btn-round btn-lg" on:click={handleClick}>
           <i class="material-icons">format_align_left</i>
           Read Article
-        </a>
+        </button>
       </div>
     </div>
   </div>
