@@ -1,52 +1,49 @@
+<script>
+  import { onMount } from "svelte";
+  import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
+  let posts = [];
+
+  onMount(async function() {
+    const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
+    posts = await response.json();
+  });
+</script>
+
 <style>
-  h1,
-  figure,
-  p {
-    text-align: center;
-    margin: 0 auto;
-  }
 
-  h1 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
-  }
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>Isight RPV Blog</title>
 </svelte:head>
+<Header />
 
-<h1>Great success!</h1>
+<div class="main main-raised" style="padding-top: 20px">
+  <div class="col-md-12">
+    <h2 class="title text-center">Latest Blog Posts</h2>
+    <br />
+    <div class="row justify-content-center">
 
-<figure>
-  <img alt="Borat" src="great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure>
+      {#each posts as post}
+        <a rel="prefetch" href="blog/{post.slug}">
 
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
+          <div class="col-md-4">
+            <div
+              class="card card-raised card-background"
+              style="background-image: url('{post.imageBackdrop.url}')">
+              <div class="card-body">
+                <h6 class="card-category text-info">{post.category}</h6>
+                <h4 class="card-title">{post.title}</h4>
+                <p class="card-description">{post.subtitle.slice(0, 200)}...</p>
+                <button class="btn btn-primary btn-round">Read Article</button>
+              </div>
+            </div>
+          </div>
+
+        </a>
+      {/each}
+    </div>
+  </div>
+</div>
+<Footer />
