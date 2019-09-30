@@ -1,3 +1,9 @@
+/* .main-raised {
+  position: absolute !important;
+  left: 0
+  max-width: none !important;
+} */
+
 .col-md-6 {
   max-width: 100% !important;
 }

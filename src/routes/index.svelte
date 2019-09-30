@@ -4,10 +4,17 @@
   import Footer from "../components/Footer.svelte";
   let posts = [];
 
+  let offset = 0;
+
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
     posts = await response.json();
+    window.addEventListener("scroll", parallaxShift);
   });
+
+  function parallaxShift() {
+    offset = window.pageYOffset;
+  }
 </script>
 
 <style>
@@ -17,9 +24,28 @@
 <svelte:head>
   <title>Isight RPV Blog</title>
 </svelte:head>
-<Header />
 
-<div class="main main-raised" style="padding-top: 20px">
+<div
+  class="page-header header-filter presentation-page"
+  style="background-image: url('main.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="brand">
+          <h1>
+            ISIGHT
+            <span class="pro-badge">RPV</span>
+          </h1>
+          <h3 class="title">
+            Blog focused on unmanned aerial vehicle service industry
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main main-raised" style="bottom: {offset / 2}px; padding-top: 20px">
   <div class="col-md-12">
     <h2 class="title text-center">Latest Blog Posts</h2>
     <br />

@@ -13,11 +13,17 @@
     posts = posts.filter(i => window.location.pathname.includes(i.slug));
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
+    window.addEventListener("scroll", parallaxShift);
   });
 
   function handleClick() {
     var element = document.getElementById("blog");
     element.scrollIntoView();
+  }
+
+  let offset = 0;
+  function parallaxShift() {
+    offset = window.pageYOffset;
   }
 </script>
 
@@ -43,7 +49,7 @@
     </div>
   </div>
 </div>
-<div class="main main-raised" id="blog">
+<div class="main main-raised" id="blog" style="bottom: {offset / 2}px;">
   <div class="container">
     <div class="section section-text">
       <div class="row">
@@ -54,5 +60,5 @@
       </div>
     </div>
   </div>
+  <Footer />
 </div>
-<Footer />
