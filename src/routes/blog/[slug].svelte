@@ -16,11 +16,6 @@
     window.addEventListener("scroll", parallaxShift);
   });
 
-  function handleClick() {
-    var element = document.getElementById("blog");
-    element.scrollIntoView();
-  }
-
   let offset = 0;
   function parallaxShift() {
     offset = window.pageYOffset;
@@ -41,10 +36,6 @@
         <h1 class="title">{pageData.title}</h1>
         <h4>{pageData.subtitle}</h4>
         <br />
-        <button class="btn btn-rose btn-round btn-lg" on:click={handleClick}>
-          <i class="material-icons">format_align_left</i>
-          Read Article
-        </button>
       </div>
     </div>
   </div>
