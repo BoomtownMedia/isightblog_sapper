@@ -20,10 +20,7 @@
           style="width: 110px"
           alt="Blue/Black Aviator Wings ISight Logo" />
       </a>
-      <a
-        class="navbar-brand navbar-left"
-        href="blog"
-        style="font-weight: bolder">
+      <a class="navbar-brand navbar-left" href="/" style="font-weight: bolder">
         ISIGHT RPV Services |
         <span style="font-weight: bolder; font-size:1.5rem">Blog</span>
       </a>
@@ -39,14 +36,5 @@
         <span class="navbar-toggler-icon" />
       </button>
     </div>
-    <button class="btn btn-large btn-success">
-      <a
-        rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog"
-        style="color: white">
-        Home
-      </a>
-    </button>
   </div>
 </nav>
