@@ -23,9 +23,10 @@
 <style>
   .img {
     width: 100%;
-    height: 15vw;
+    height: 200px !important;
     object-fit: cover;
   }
+
 </style>
 
 <svelte:head>
