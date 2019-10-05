@@ -117,7 +117,6 @@
                 class="card card-raised card-background"
                 style="background-image: url('{post.imageBackdrop.url}')">
                 <div class="card-body">
-                  <h6 class="card-category text-info">{post.category}</h6>
                   <h3 class="card-title">{post.title}</h3>
                   <p class="card-description">
                     {post.subtitle.slice(0, 200)}...
@@ -135,12 +134,12 @@
         <!--End Single Column Card with Background-->
 
         <div class="section">
-          <h3 class="title text-center">You may also be interested in</h3>
+          <h3 class="title text-center">Other posts</h3>
           <br />
           <div class="row">
             {#each posts.slice(3, posts.length + 1) as post}
               <div class="col-md-4">
-                <div class="card card-plain card-blog">
+                <div class="card card-blog">
                   <div class="card-header card-header-image">
                     <a href="blog/{post.slug}">
                       <img
@@ -155,6 +154,12 @@
                     <p class="card-description">
                       {post.subtitle}
                       <a href="blog/{post.slug}">Read More</a>
+                    </p>
+                    <p class="author">
+                    by
+                    <a href="blog/{post.slug}">
+                    <b>{post.author}</b>
+                    {new Date(post.createdAt).toLocaleDateString('default', {weekday: 'long', month:'long', day:'numeric'})}</a>
                     </p>
                   </div>
                 </div>
