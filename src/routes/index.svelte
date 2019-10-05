@@ -142,7 +142,7 @@
               <div class="col-md-4">
                 <div class="card card-plain card-blog">
                   <div class="card-header card-header-image">
-                    <a href="#pablo">
+                    <a href="blog/{post.slug}">
                       <img
                         class="img img-raised"
                         src={post.imageBackdrop.url} />
@@ -150,7 +150,7 @@
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <a href="#pablo">{post.title}</a>
+                      <a href="blog{post.slug}">{post.title}</a>
                     </h4>
                     <p class="card-description">
                       {post.subtitle}
