@@ -4,7 +4,9 @@
 </script>
 
 <style>
-
+  main {
+    max-height: 1080px;
+  }
 </style>
 
 <Nav {segment} />

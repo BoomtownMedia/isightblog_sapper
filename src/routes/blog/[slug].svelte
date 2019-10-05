@@ -40,13 +40,18 @@
     </div>
   </div>
 </div>
-<div class="main main-raised" id="blog" style="bottom: {offset / 2}px;">
+<div
+  class="main main-raised"
+  id="blog"
+  style="bottom: {offset / 2}px; margin-bottom: -{offset / 2}px">
   <div class="container">
     <div class="section section-text">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <h3 class="title">{pageData.subtitle}</h3>
-          <p>{pageData.postBody}</p>
+          <p>
+            {@html pageData.postBody}
+          </p>
         </div>
       </div>
     </div>
