@@ -1,5 +1,5 @@
 <script>
-  import Footer from "../../components/Footer.svelte";
+  import Footer from "../components/Footer.svelte";
   import { onMount } from "svelte";
 
   export let pageData = {};
