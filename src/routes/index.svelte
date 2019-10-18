@@ -150,7 +150,7 @@
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <a href="blog{post.slug}">{post.title}</a>
+                      <a href="blog/{post.slug}">{post.title}</a>
                     </h4>
                     <p class="card-description">
                       {post.subtitle}
