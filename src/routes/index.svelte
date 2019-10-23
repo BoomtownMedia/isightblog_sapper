@@ -18,6 +18,13 @@
   function parallaxShift() {
     offset = window.pageYOffset;
   }
+
+  function convertToSlug(title) {
+    return title.toLowerCase()
+      .replace(/[^\w ]+/g, "")
+      .replace(/ +/g, "-");
+  }
+
 </script>
 
 <style>
@@ -26,7 +33,6 @@
     height: 200px !important;
     object-fit: cover;
   }
-
 </style>
 
 <svelte:head>
@@ -65,7 +71,7 @@
         <!--Begin Two Column Cards-->
         {#each posts.slice(0, 1) as post}
           <div class="col-md-6">
-            <a rel="prefetch" href="{post.slug}">
+            <a rel="prefetch" href={convertToSlug(post.title)}>
 
               <div
                 class="card card-raised card-background"
@@ -87,7 +93,7 @@
         <!--Begin Two Column Cards-->
         {#each posts.slice(1, 2) as post}
           <div class="col-md-6">
-            <a rel="prefetch" href="{post.slug}">
+            <a rel="prefetch" href={convertToSlug(post.title)}>
 
               <div
                 class="card card-raised card-background"
@@ -112,7 +118,7 @@
         <!--Single Column Card with Background-->
         <div class="col-md-12">
           {#each posts.slice(2, 3) as post}
-            <a rel="prefetch" href="{post.slug}">
+            <a rel="prefetch" href={convertToSlug(post.title)}>
 
               <div
                 class="card card-raised card-background"
@@ -142,7 +148,7 @@
               <div class="col-md-4">
                 <div class="card card-blog">
                   <div class="card-header card-header-image">
-                    <a href="{post.slug}">
+                    <a href={convertToSlug(post.title)}>
                       <img
                         class="img img-raised"
                         src={post.imageBackdrop.url} />
@@ -150,17 +156,21 @@
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">
-                      <a href="{post.slug}">{post.title}</a>
+                      <a href={convertToSlug(post.title)}>{post.title}</a>
                     </h4>
                     <p class="card-description">
                       {post.subtitle}
-                      <a href="{post.slug}">Read More</a>
+                      <a href={convertToSlug(post.title)}>Read More</a>
                     </p>
                     <p class="author">
-                    by
-                    <a href="{post.slug}">
-                    <b>{post.author}</b>
-                    {new Date(post.createdAt).toLocaleDateString('default', {weekday: 'long', month:'long', day:'numeric'})}</a>
+                      by
+                      <a href={post.slug}>
+                        <b>{post.author}</b>
+                        {new Date(post.createdAt).toLocaleDateString(
+                          'default',
+                          { weekday: 'long', month: 'long', day: 'numeric' }
+                        )}
+                      </a>
                     </p>
                   </div>
                 </div>

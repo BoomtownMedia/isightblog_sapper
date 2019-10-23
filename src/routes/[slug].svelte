@@ -10,11 +10,18 @@
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
     posts = await response.json();
-    posts = posts.filter(i => window.location.pathname.includes(i.slug));
+    posts = posts.filter(i => window.location.pathname.includes(convertToSlug(i.title)));
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
     window.addEventListener("scroll", parallaxShift);
   });
+
+   function convertToSlug(title) {
+    return title.toLowerCase()
+      .replace(/[^\w ]+/g, "")
+      .replace(/ +/g, "-");
+  }
+
 
   let offset = 0;
   function parallaxShift() {
