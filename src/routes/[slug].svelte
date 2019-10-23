@@ -13,6 +13,7 @@
     posts = posts.filter(i => window.location.pathname.includes(convertToSlug(i.title)));
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
+    
     window.addEventListener("scroll", parallaxShift);
   });
 
