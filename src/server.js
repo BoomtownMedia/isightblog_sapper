@@ -1,7 +1,6 @@
 import sirv from "sirv";
 import express from "express";
 import compression from "compression";
-import * as forceSsl from "force-ssl-heroku";
 import * as sapper from "@sapper/server";
 
 const { PORT, NODE_ENV } = process.env;
@@ -11,8 +10,7 @@ express()
   .use(
     compression({ threshold: 0 }),
     sirv("static", { dev }),
-    sapper.middleware(),
-    forceSsl
+    sapper.middleware()
   )
   .listen(PORT, err => {
     if (err) console.log("error", err);
