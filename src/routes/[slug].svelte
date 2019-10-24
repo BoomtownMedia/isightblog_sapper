@@ -17,10 +17,6 @@
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
 
-    URL = window.location.href;
-    encodedURL = encodeURI(URL);
-    console.log(encodedURL);
-
     window.addEventListener("scroll", parallaxShift);
   });
 
@@ -32,6 +28,7 @@
   }
 
   let offset = 0;
+
   function parallaxShift() {
     offset = window.pageYOffset;
   }
@@ -72,6 +69,9 @@
       </div>
     </div>
   </div>
-  <div class="fb-share-button" data-href={encodedURL} data-layout="button" />
+  <div
+    class="fb-share-button"
+    data-href={window.location.href}
+    data-layout="button" />
 </div>
 <Footer />
