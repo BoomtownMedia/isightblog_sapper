@@ -17,6 +17,7 @@
     imageURL = pageData.imageBackdrop.url;
 
     URL = window.location.href;
+    encodedURL = encodeURI(URL);
 
     window.addEventListener("scroll", parallaxShift);
   });
@@ -36,13 +37,11 @@
 
 <svelte:head>
   <title>{pageData.title}</title>
-  <meta property="og:url" content={URL} />
+  <meta property="og:url" content={encodedURL} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={pageData.title} />
   <meta property="og:description" content={pageData.subtitle} />
-  <meta
-    property="og:image"
-    content={imageURL} />
+  <meta property="og:image" content={imageURL} />
 </svelte:head>
 
 <div id="fb-root" />
@@ -76,6 +75,6 @@
       </div>
     </div>
   </div>
-  <div class="fb-share-button" data-href={URL} data-layout="button" />
+  <div class="fb-share-button" data-href={encodedURL} data-layout="button" />
 </div>
 <Footer />
