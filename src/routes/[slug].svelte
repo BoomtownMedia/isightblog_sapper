@@ -6,7 +6,7 @@
   let posts = [];
   let slug;
   let imageURL = "";
-
+  let URL;
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
     posts = await response.json();
@@ -15,6 +15,8 @@
     );
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
+
+    URL = window.location.href;
 
     window.addEventListener("scroll", parallaxShift);
   });
@@ -36,6 +38,7 @@
   <title>{pageData.title}</title>
 </svelte:head>
 
+<div id="fb-root" />
 <div
   class="page-header header-filter"
   data-parallax="true"
@@ -66,11 +69,6 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <div
-      class="fb-share-button"
-      data-href={window.location.href}
-      data-layout="button_count" />
-  </div>
+  <div class="fb-share-button" data-href={URL} data-layout="button" />
 </div>
 <Footer />
