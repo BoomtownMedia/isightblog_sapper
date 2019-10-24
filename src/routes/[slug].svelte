@@ -19,6 +19,7 @@
 
     URL = window.location.href;
     encodedURL = encodeURI(URL);
+    console.log(encodedURL);
 
     window.addEventListener("scroll", parallaxShift);
   });
