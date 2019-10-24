@@ -6,6 +6,7 @@
   let posts = [];
   let slug;
   let imageURL = "";
+  let encodedURL;
   let URL;
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
