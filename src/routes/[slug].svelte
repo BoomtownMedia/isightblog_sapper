@@ -10,19 +10,21 @@
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
     posts = await response.json();
-    posts = posts.filter(i => window.location.pathname.includes(convertToSlug(i.title)));
+    posts = posts.filter(i =>
+      window.location.pathname.includes(convertToSlug(i.title))
+    );
     pageData = posts[0];
     imageURL = pageData.imageBackdrop.url;
-    
+
     window.addEventListener("scroll", parallaxShift);
   });
 
-   function convertToSlug(title) {
-    return title.toLowerCase()
+  function convertToSlug(title) {
+    return title
+      .toLowerCase()
       .replace(/[^\w ]+/g, "")
       .replace(/ +/g, "-");
   }
-
 
   let offset = 0;
   function parallaxShift() {
@@ -63,6 +65,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="container">
+    <div
+      class="fb-share-button"
+      data-href={window.location.href}
+      data-layout="button_count" />
   </div>
 </div>
 <Footer />

@@ -32,12 +32,20 @@
   </head>
   <body>
     <!-- The application will be rendered inside this element,
-	     because `src/client.js` references it -->
+       because `src/client.js` references it -->
+    <div id="fb-root"></div>
     <div id="sapper">%sapper.html%</div>
 
     <!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
-	     initialise the router -->
+       initialise the router -->
+
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=2053149121451683&autoLogAppEvents=1"
+    ></script>
     %sapper.scripts%
   </body>
 </html>
