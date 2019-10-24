@@ -38,11 +38,6 @@
 
 <svelte:head>
   <title>{pageData.title}</title>
-  <meta property="og:url" content={encodedURL} />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content={pageData.title} />
-  <meta property="og:description" content={pageData.subtitle} />
-  <meta property="og:image" content={imageURL} />
 </svelte:head>
 
 <div id="fb-root" />
