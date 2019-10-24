@@ -12,7 +12,7 @@
   onMount(async function() {
     const response = await fetch("https://blog-api-isight.herokuapp.com/posts");
     posts = await response.json();
-    
+
     window.addEventListener("scroll", parallaxShift);
   });
 
@@ -21,12 +21,11 @@
   }
 
   function convertToSlug(title) {
-    return title.toLowerCase()
+    return title
+      .toLowerCase()
       .replace(/[^\w ]+/g, "")
       .replace(/ +/g, "-");
   }
-
-
 </script>
 
 <style>
@@ -108,6 +107,10 @@
                   <button class="btn btn-warning btn-round">
                     Read Article
                   </button>
+                  <div
+                    class="fb-share-button"
+                    data-href={convertToSlug(post.title)}
+                    data-layout="button_count" />
                 </div>
               </div>
 

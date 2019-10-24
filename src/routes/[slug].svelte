@@ -38,7 +38,6 @@
   <title>{pageData.title}</title>
 </svelte:head>
 
-<div id="fb-root" />
 <div
   class="page-header header-filter"
   data-parallax="true"
@@ -69,9 +68,5 @@
       </div>
     </div>
   </div>
-  <div
-    class="fb-share-button"
-    data-href={window.location.href}
-    data-layout="button" />
 </div>
 <Footer />
